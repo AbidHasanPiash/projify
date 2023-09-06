@@ -20,7 +20,7 @@ export default function Login() {
           <div className='flex space-x-16'>{dot}</div>
         </div>
         <div className='flex flex-col items-center justify-center space-y-6'>
-          <h1>Start your project</h1>
+          <h1 className='text-4xl font-bold select-none'>Start your project</h1>
           <form className='flex flex-col items-center justify-center space-y-6'>
             <input 
               type="text" 
@@ -32,12 +32,14 @@ export default function Login() {
               className='w-80 outline-none px-4 py-4 bg-gray-950 rounded-full focus:ring-2 ring-orange-500'/>
               <button 
                 type="submit"
-                className='w-80 px-4 py-4 bg-gray-950 text-orange-500 rounded-full focus:ring-2 ring-orange-500'>
+                className='w-80 px-4 py-4 bg-gray-950 text-orange-500 font-bold rounded-full focus:ring-2 ring-orange-500 hover:tracking-widest transition-all duration-200'>
                 Login
               </button>
           </form>
-          <span>or</span>
-          <Link href={'/auth/register'}>Register</Link>
+          <div className='flex flex-col items-center justify-center'>
+            <p className='text-gray-400'>or</p>
+            <Link href={'/auth/register'} className='tracking-widest'>Register</Link>
+          </div>
         </div>
       </div>
     </section>
