@@ -1,10 +1,16 @@
+'use client'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link';
-import React from 'react'
 
 export default function Login() {
   let dot = new Array;
   for (let index = 0; index < 4; index++) {
     dot[index]=<div className='w-10 h-10 bg-gray-950 rounded-full'></div>
+  }
+  const router = useRouter()
+  const handleLogin = (e) => {
+    e.preventDefault();
+    router.push('/dashboard')
   }
   return (
     <section className='h-screen flex items-center justify-center'>
@@ -21,7 +27,7 @@ export default function Login() {
         </div>
         <div className='flex flex-col items-center justify-center space-y-6'>
           <h1 className='text-4xl font-bold select-none'>Start your project</h1>
-          <form className='flex flex-col items-center justify-center space-y-6'>
+          <form onSubmit={handleLogin} className='flex flex-col items-center justify-center space-y-6'>
             <input 
               type="text" 
               placeholder='User name' 
@@ -30,15 +36,16 @@ export default function Login() {
               type="password" 
               placeholder='Password' 
               className='w-80 outline-none px-4 py-4 bg-gray-950 rounded-full focus:ring-2 ring-orange-500'/>
-              <button 
-                type="submit"
-                className='w-80 px-4 py-4 bg-gray-950 text-orange-500 font-bold rounded-full focus:ring-2 ring-orange-500 hover:tracking-widest transition-all duration-200'>
-                Login
-              </button>
+            <button type="submit" className='w-80 px-4 py-4 bg-gray-950 text-orange-500 font-bold rounded-full focus:ring-2 ring-orange-500 hover:tracking-widest transition-all duration-200'>
+              Login
+            </button>
           </form>
           <div className='flex flex-col items-center justify-center'>
             <p className='text-gray-400'>or</p>
-            <Link href={'/auth/register'} className='tracking-widest'>Register</Link>
+            <div className='space-x-4'>
+              <Link href={'/auth/register'} className='tracking-widest hover:text-orange-500 hover:underline underline-offset-4 transition-colors duration-200'>Register</Link>
+              <Link href={'/'} className='tracking-widest hover:text-orange-500 hover:underline underline-offset-4 transition-colors duration-200'>Go Home</Link>
+            </div>
           </div>
         </div>
       </div>
