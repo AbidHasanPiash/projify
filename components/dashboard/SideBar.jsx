@@ -64,11 +64,6 @@ export default function SideBar() {
                 </ul>
             </div>
         </div>
-        <div className='p-6 flex items-center justify-center'>
-            <button className='w-full py-2 flex items-center justify-center space-x-3 hover:ring-1 ring-orange-500 hover:text-orange-500 text-sm rounded-full'>
-                <span>Log out</span> <FaSignOutAlt/>
-            </button>
-        </div>
     </aside>
   )
 }
