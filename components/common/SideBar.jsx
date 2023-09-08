@@ -8,7 +8,7 @@ import { LuPanelLeftClose } from 'react-icons/lu';
 
 export default function SideBar({toggleSidebar}) {
   return (
-    <div className='w-full h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5'>
+    <div className='w-full h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
             <div>
                 <div className='flex items-center space-x-3'>
