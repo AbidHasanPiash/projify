@@ -3,11 +3,11 @@ import React from 'react'
 import { BsPersonBoundingBox } from 'react-icons/bs';
 import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
-import { FaClipboardList, FaSignOutAlt } from 'react-icons/fa';
+import { FaClipboardList } from 'react-icons/fa';
 
 export default function SideBar() {
   return (
-    <aside className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5'>
+    <div className='w-full h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5'>
         <div className='p-6 space-y-4'>
             <div className='flex items-center space-x-3'>
                 <div className='rounded-full w-10 h-10 ring-2 ring-gray-300 flex items-center justify-center'>
@@ -64,6 +64,6 @@ export default function SideBar() {
                 </ul>
             </div>
         </div>
-    </aside>
+    </div>
   )
 }
