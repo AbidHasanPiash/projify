@@ -6,9 +6,9 @@ export default function Nav({toggleSidebar}) {
   return (
     <nav className='h-10 w-fit m-6 px-6 space-x-6 flex items-center rounded-full bg-gray-900'>
       <div>
-        <button onClick={toggleSidebar} className='cursor-pointer hover:text-orange-400'>
+        <span onClick={toggleSidebar} className='cursor-pointer hover:text-orange-400'>
           <RiMenu5Fill size={20}/>
-        </button>
+        </span>
       </div>
       <div className='flex'>
         <div className='border-r pr-6 mr-6 border-gray-500'>
