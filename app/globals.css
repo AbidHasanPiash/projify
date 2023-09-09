@@ -9,38 +9,25 @@
     /* Width of the scrollbar */
 }
 
-/************* Scroll bar Light theme *************/
-.light-theme::-webkit-scrollbar-track {
-    background-color: rgb(243 244 246);
-    /* Color of the scrollbar track */
-}
-
-.light-theme::-webkit-scrollbar-thumb {
-    background-color: rgb(156 163 175);
-    /* Color of the scrollbar thumb */
-    border-radius: 6px;
-    /* Rounded corners for the thumb */
-}
-
-.light-theme::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(249, 157, 103);
-    /* Color of the thumb on hover */
-}
-
 /************* Scroll bar Dark theme *************/
-.dark-theme::-webkit-scrollbar-track {
-    background-color: rgb(31 41 55);
+::-webkit-scrollbar-track {
+    background-color: #111827;
     /* Color of the scrollbar track */
 }
 
-.dark-theme::-webkit-scrollbar-thumb {
-    background-color: rgb(107 114 128);
+::-webkit-scrollbar-thumb {
+    background-color: #1f2937;
     /* Color of the scrollbar thumb */
     border-radius: 6px;
     /* Rounded corners for the thumb */
 }
 
-.dark-theme::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(249, 174, 103);
+::-webkit-scrollbar-thumb:hover {
+    background-color: #f97316;
     /* Color of the thumb on hover */
+}
+/* Show the scrollbar on hover */
+/* Adjust the opacity to your preference */
+.scrollable-div:hover::-webkit-scrollbar {
+    opacity: 1;
 }

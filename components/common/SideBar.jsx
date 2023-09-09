@@ -38,7 +38,7 @@ export default function SideBar({toggleSidebar}) {
                 </li>
                 <li className='group flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'> 
                     <span className='group-hover:text-orange-500'><HiUserGroup size={22}/> </span>
-                    <span className='group-hover:text-gray-300'>Members</span>
+                    <span className='group-hover:text-gray-300'>Team</span>
                 </li>
             </ul>
             <div>

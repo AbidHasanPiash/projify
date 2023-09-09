@@ -1,4 +1,3 @@
-import Nav from "@/components/common/Nav";
 import Link from "next/link";
 
 export default function Home() {
