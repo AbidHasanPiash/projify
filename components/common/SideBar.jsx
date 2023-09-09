@@ -8,7 +8,7 @@ import { LuPanelLeftClose } from 'react-icons/lu';
 
 export default function SideBar({toggleSidebar}) {
   return (
-    <div className='w-full h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
+    <div className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
             <div>
                 <div className='flex items-center space-x-3'>
@@ -20,7 +20,7 @@ export default function SideBar({toggleSidebar}) {
                         <p className='text-xs tracking-widest'>Leader</p>
                     </div>
                 </div>
-                <button onClick={toggleSidebar} className='md:hidden fixed h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center -right-5 top-6'>
+                <button onClick={toggleSidebar} className='md:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-6'>
                     <LuPanelLeftClose size={22}/>
                 </button>
             </div>
