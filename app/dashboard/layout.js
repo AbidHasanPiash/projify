@@ -19,19 +19,19 @@ export default function RootLayout({ children }) {
       }
     }
   return (
-    <html lang="en" className='bg-gray-950 text-gray-200'>
+    <html lang="en" className='bg-gray-950 text-gray-400'>
       <body>
         <main className='flex'>
             {/* Sidebar for Mobile */}
-            <aside id='outside' onClick={closeSidebar} className={`md:hidden ${isOpen ? 'w-full translate-x-0 backdrop-blur' : 'w-0 -translate-x-96'} fixed transition-all duration-500 ease-in-out`}>
+            <aside id='outside' onClick={closeSidebar} className={`md:hidden ${isOpen ? 'w-full translate-x-0 backdrop-blur' : 'w-0 -translate-x-96'} fixed transition-all duration-300 ease-in-out`}>
                 <SideBar toggleSidebar={toggleSidebar}/>
             </aside>
             {/* Sidebar for Desktop */}
-            <aside className={`hidden md:block ${isOpen ? 'w-0 -translate-x-96' : 'w-60 translate-x-0'} transition-all duration-500 ease-in-out`}>
+            <aside className={`hidden md:block ${isOpen ? 'w-0 -translate-x-96' : 'w-60 translate-x-0'} transition-all duration-300 ease-in-out`}>
                 <SideBar toggleSidebar={toggleSidebar}/>
             </aside>
             {/* Navbar and childres */}
-            <div>
+            <div className='w-full'>
                 <Nav toggleSidebar={toggleSidebar}/>
                 <div>
                     {children}

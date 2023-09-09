@@ -1,18 +1,17 @@
-
+import ProjectCard from "@/components/dashboard/ProjectCard";
 
 export default function Dashboard() {
   return (
     <section>
       <div>
-        
-        <div className='px-3 md:px-6 flex-wrap'>
+        <div className='w-full px-3 md:px-6 grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {/* Card */}
-          <div className='w-80 bg-gray-900 rounded-xl p-3'>
-            <div className='flex items-center justify-between'>
-              <h1 className='text-xl'>Project name</h1>
-              <span>yours</span>
-            </div>
-          </div>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
+          <ProjectCard/>
         </div>
       </div>
     </section>
