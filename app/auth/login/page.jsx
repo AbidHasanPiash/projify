@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Login() {
   let dot = new Array;
   for (let index = 0; index < 4; index++) {
-    dot[index]=<div className='w-10 h-10 bg-gray-950 rounded-full'></div>
+    dot[index]=<div key={index} className='w-10 h-10 bg-gray-950 rounded-full'></div>
   }
   const router = useRouter()
   const handleLogin = (e) => {
