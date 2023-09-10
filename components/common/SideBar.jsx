@@ -5,7 +5,7 @@ import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
 import { LuPanelLeftClose } from 'react-icons/lu';
-import {Dropdown, DropdownTrigger} from "@nextui-org/react";
+import {Avatar, Dropdown, DropdownTrigger} from "@nextui-org/react";
 import {Button} from "@nextui-org/react";
 import ProfileDropDown from '../dashboard/ProfileDropDown';
 
@@ -16,8 +16,8 @@ export default function SideBar({toggleSidebar}) {
             <Dropdown backdrop="blur" placement="bottom-start" className='dark bg-gray-800'>
                 <DropdownTrigger>
                     <div className='flex items-center space-x-3 cursor-pointer'>
-                        <div className='rounded-full w-10 h-10 ring-2 ring-gray-300 flex items-center justify-center'>
-                            <BsPersonBoundingBox size={25}/>
+                        <div className='rounded-full w-10 h-10 flex items-center justify-center'>
+                            <Avatar isBordered color="warning" className='dark' src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
                         </div>
                         <div>
                             <p className='font-bold text-gray-300'>Abid Hasan</p>
