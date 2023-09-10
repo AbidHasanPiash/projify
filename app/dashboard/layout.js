@@ -19,9 +19,9 @@ export default function RootLayout({ children }) {
       }
     }
   return (
-    <html lang="en" className='bg-gray-950 text-gray-400'>
-      <body>
-        <main className='flex'>
+    <section lang="en" className='bg-gray-950 text-gray-400'>
+      <div>
+        <div className='flex'>
             {/* Sidebar for Mobile */}
             <aside id='outside' onClick={closeSidebar} className={`lg:hidden ${isOpen ? 'w-full translate-x-0 backdrop-blur-sm' : 'w-0 -translate-x-96'} fixed transition-all duration-200 ease-linear`}>
                 <SideBar toggleSidebar={toggleSidebar}/>
@@ -37,8 +37,8 @@ export default function RootLayout({ children }) {
                     {children}
                 </div>
             </div>
-        </main>
-      </body>
-    </html>
+        </div>
+      </div>
+    </section>
   )
 }

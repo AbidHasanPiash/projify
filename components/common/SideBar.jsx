@@ -5,21 +5,28 @@ import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
 import { LuPanelLeftClose } from 'react-icons/lu';
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/react";
+import ProfileDropDown from '../dashboard/ProfileDropDown';
 
 export default function SideBar({toggleSidebar}) {
   return (
     <div className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
             <div>
-                <div className='flex items-center space-x-3'>
-                    <div className='rounded-full w-10 h-10 ring-2 ring-gray-300 flex items-center justify-center'>
-                        <BsPersonBoundingBox size={25}/>
-                    </div>
-                    <div>
-                        <p className='font-bold text-gray-300'>Abid Hasan</p>
-                        <p className='text-xs tracking-widest'>Leader</p>
-                    </div>
-                </div>
+                <Dropdown backdrop="blur" placement="bottom-start" className='dark bg-gray-800'>
+                    <DropdownTrigger>
+                        <div className='flex items-center space-x-3 cursor-pointer'>
+                            <div className='rounded-full w-10 h-10 ring-2 ring-gray-300 flex items-center justify-center'>
+                                <BsPersonBoundingBox size={25}/>
+                            </div>
+                            <div>
+                                <p className='font-bold text-gray-300'>Abid Hasan</p>
+                                <p className='text-xs tracking-widest'>Leader</p>
+                            </div>
+                        </div>
+                    </DropdownTrigger>
+                    <ProfileDropDown/>
+                </Dropdown>
                 <button onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-6'>
                     <LuPanelLeftClose size={22}/>
                 </button>

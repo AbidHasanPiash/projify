@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {Button} from '@nextui-org/button';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
             <span>Get Started</span>
           </button>
         </Link>
+        <Button className="rounded-full">Click me</Button>
       </div>
     </main>
   )
