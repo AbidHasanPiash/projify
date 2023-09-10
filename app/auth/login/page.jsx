@@ -18,7 +18,7 @@ export default function Login() {
         <div className='hidden lg:flex flex-col space-y-16'>
           <div className='flex space-x-16'>{dot}</div>
           <div className='flex space-x-16'>{dot}</div>
-          <div className='flex items-center'>
+          <div className='flex items-center space-x-0.5'>
             <div className='w-10 h-10 bg-orange-500 rounded-full'></div>
             <p className='text-4xl font-bold select-none'>rganize it all</p>
           </div>

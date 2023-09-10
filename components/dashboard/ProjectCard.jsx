@@ -12,16 +12,16 @@ export default function ProjectCard() {
         <span className="cursor-pointer p-1"><HiStar size={20}/></span>
       </div>
       <div className="flex items-center justify-end space-x-3">
-        <p className="w-fit text-sm px-4 py-1 bg-gray-700 rounded-full flex items-center space-x-2">
+        <p className="w-fit text-sm px-4 py-1 bg-gray-800 rounded-full flex items-center space-x-2">
             <span className="text-cyan-400"><BsPersonCircle/></span>
             <span>Your</span>
         </p>
-        <p className="w-fit text-sm px-4 py-1 bg-gray-700 rounded-full flex items-center space-x-2">
+        <p className="w-fit text-sm px-4 py-1 bg-gray-800 rounded-full flex items-center space-x-2">
             <span className="text-lime-400"><BsStopwatchFill/></span>
             <span>10-11-2023</span>
         </p>
       </div>
-      <div className="p-2 rounded-md bg-gray-800 text-gray-300">
+      <div className="p-2 rounded-md bg-gray-800 text-gray-400">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.
       </div>
       <div>
