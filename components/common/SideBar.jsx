@@ -20,7 +20,7 @@ export default function SideBar({toggleSidebar}) {
                         <p className='text-xs tracking-widest'>Leader</p>
                     </div>
                 </div>
-                <button onClick={toggleSidebar} className='md:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-6'>
+                <button onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-6'>
                     <LuPanelLeftClose size={22}/>
                 </button>
             </div>
