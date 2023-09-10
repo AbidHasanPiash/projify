@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import Nav from "@/components/common/Nav";
 import SideBar from "@/components/common/SideBar";
 
-export const metadata = {
+const metadata = {
   title: 'Taskhub | Dashboard',
   description: 'Organize your work and life, finally.',
 }
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
     const [isOpen, setIsOpen] = useState(false);
     const toggleSidebar = () => {
       setIsOpen((p)=>!p);
@@ -42,3 +42,4 @@ export default function RootLayout({ children }) {
     </section>
   )
 }
+export { metadata };
