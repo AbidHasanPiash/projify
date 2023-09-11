@@ -5,29 +5,26 @@ import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
 import { LuPanelLeftClose } from 'react-icons/lu';
-import {Avatar, Dropdown, DropdownTrigger} from "@nextui-org/react";
+import {Avatar, useDisclosure} from "@nextui-org/react";
 import {Button} from "@nextui-org/react";
-import ProfileDropDown from '../dashboard/ProfileDropDown';
+import ProfileModal from '../dashboard/ProfileModal';
 
 export default function SideBar({toggleSidebar}) {
+    const {isOpen, onOpen, onClose} = useDisclosure();
   return (
     <div className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
-            <Dropdown backdrop="blur" placement="bottom-start" className='dark bg-gray-800'>
-                <DropdownTrigger>
-                    <div className='flex items-center space-x-3 cursor-pointer'>
-                        <div className='rounded-full w-10 h-10 flex items-center justify-center'>
-                            <Avatar isBordered color="warning" className='dark' src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-                        </div>
-                        <div>
-                            <p className='font-bold text-gray-300'>Abid Hasan</p>
-                            <p className='text-xs tracking-widest'>Leader</p>
-                        </div>
-                    </div>
-                </DropdownTrigger>
-                <ProfileDropDown/>
-            </Dropdown>
-            <button onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-6'>
+            <div onClick={onOpen} className='flex items-center space-x-3 cursor-pointer'>
+                <div className='rounded-full w-10 h-10 flex items-center justify-center'>
+                    <Avatar isBordered color="warning" className='dark' src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
+                </div>
+                <div>
+                    <p className='font-bold text-gray-300'>Abid Hasan</p>
+                    <p className='text-xs tracking-widest'>Leader</p>
+                </div>
+            </div>
+            <ProfileModal isOpen={isOpen} onClose={onClose}/>
+            <button onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-2'>
                 <LuPanelLeftClose size={22}/>
             </button>
         </div>
