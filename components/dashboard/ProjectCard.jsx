@@ -2,7 +2,7 @@
 import React from "react";
 import { BsPersonCircle, BsStopwatchFill } from "react-icons/bs";
 import { HiStar } from "react-icons/hi";
-import {Avatar, AvatarGroup} from "@nextui-org/react";
+import {Avatar, AvatarGroup, Tooltip} from "@nextui-org/react";
 
 export default function ProjectCard({item}) {
   return (
@@ -24,10 +24,20 @@ export default function ProjectCard({item}) {
         </p>
       </div>
       <div className="p-2 rounded-md bg-gray-800 text-sm text-gray-400">{item.discriptios}</div>
-      <div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center justify-end space-x-3">
+          <p className="w-fit text-xs px-4 py-1 bg-gray-800 rounded-full flex items-center">
+              <span>4 Done</span>
+          </p>
+          <p className="w-fit text-xs px-4 py-1 bg-gray-800 rounded-full flex items-center">
+            <span>12 Going </span>
+          </p>
+        </div>
         <AvatarGroup isBordered className="dark" max={3} total={item.team.length}>
           {item.team?.map((t, i)=>(
-            <Avatar key={i} size="sm" src={t.src} />
+            <Tooltip key={i} color={'success'} content={t.name} className="dark">
+              <Avatar size="sm" src={t.src}/>
+            </Tooltip>
           ))}
         </AvatarGroup>
       </div>
