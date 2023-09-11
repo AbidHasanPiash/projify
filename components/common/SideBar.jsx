@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { BsPersonBoundingBox } from 'react-icons/bs';
 import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
@@ -8,6 +7,7 @@ import { LuPanelLeftClose } from 'react-icons/lu';
 import {Avatar, useDisclosure} from "@nextui-org/react";
 import {Button} from "@nextui-org/react";
 import ProfileModal from './ProfileModal';
+import Link from 'next/link';
 
 export default function SideBar({toggleSidebar}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
@@ -31,10 +31,12 @@ export default function SideBar({toggleSidebar}) {
         <div className='h-full flex flex-col space-y-4'>
             <ul>
                 <li> 
+                    <Link href={'/dashboard/target'}>
                     <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
                         <span className='group-hover:text-orange-500'><TbTargetArrow size={22}/> </span>
                         <span className='group-hover:text-gray-300'>Target</span>
                     </Button>
+                    </Link>
                 </li>
                 <li> 
                     <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
