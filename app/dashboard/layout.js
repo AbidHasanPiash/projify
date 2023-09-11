@@ -18,7 +18,7 @@ export default function Layout({ children }) {
       <div>
         <div className='flex'>
           {/* Sidebar for Mobile */}
-          <aside id='outside' onClick={closeSidebar} className={`lg:hidden ${isOpen ? 'w-full translate-x-0 backdrop-blur-sm' : 'w-0 -translate-x-96'} fixed transition-all duration-200 ease-linear`}>
+          <aside id='outside' onClick={closeSidebar} className={`lg:hidden ${isOpen ? 'w-full z-20 translate-x-0 backdrop-blur-sm' : 'w-0 -translate-x-96'} fixed transition-all duration-200 ease-linear`}>
             <SideBar toggleSidebar={toggleSidebar} />
           </aside>
           {/* Sidebar for Desktop */}
@@ -27,8 +27,8 @@ export default function Layout({ children }) {
           </aside>
           {/* Navbar and childres */}
           <div className='w-full h-screen overflow-y-auto'>
-            <Nav toggleSidebar={toggleSidebar} />
-            <div>
+            <Nav toggleSidebar={toggleSidebar} isOpen={isOpen}/>
+            <div className='px-3 md:px-6'>
               {children}
             </div>
           </div>

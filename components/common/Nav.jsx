@@ -10,7 +10,7 @@ import {
   DropdownSection,
 } from "@nextui-org/react";
 
-export default function Nav({ toggleSidebar }) {
+export default function Nav({ toggleSidebar, isOpen }) {
   return (
     <nav className="h-10 w-fit m-6 px-6 space-x-6 flex items-center rounded-full bg-gray-900">
       <div>
@@ -29,7 +29,7 @@ export default function Nav({ toggleSidebar }) {
           <span>12 tasks</span>
           <span>4 members</span>
         </div>
-        <Dropdown backdrop="blur" className="dark bg-gray-800">
+        <Dropdown className="dark bg-gray-800">
           <DropdownTrigger>
             <Button variant="transparant">
               <span>
