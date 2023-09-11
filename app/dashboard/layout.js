@@ -28,7 +28,7 @@ export default function Layout({ children }) {
           {/* Navbar and childres */}
           <div className='w-full h-screen overflow-y-auto'>
             <Nav toggleSidebar={toggleSidebar} isOpen={isOpen}/>
-            <div>
+            <div className='px-3 md:px-6'>
               {children}
             </div>
           </div>

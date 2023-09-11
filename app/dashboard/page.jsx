@@ -1,17 +1,27 @@
+"use client"
+import { useState } from "react";
 import ProjectCard from "@/components/dashboard/ProjectCard";
 
 export default function Dashboard() {
+  const [projects, setProjects] = useState([
+    {
+      title:'RestoMan', 
+      discriptios:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
+      finishDate:'25-10-2023',
+      team:[
+        {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
+        {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
+        {name:'Tom', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
+      ]
+    }
+  ])
   return (
     <section>
       <div>
-        <div className='w-full px-3 md:px-6 grid gap-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 transition-all duration-200'>
-          {/* Card */}
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
+        <div className='w-full grid gap-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 transition-all duration-200'>
+          {projects?.map((item, index)=>(
+            <ProjectCard key={index} item={item}/>
+          ))}
         </div>
       </div>
     </section>

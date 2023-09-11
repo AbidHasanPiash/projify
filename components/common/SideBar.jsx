@@ -7,7 +7,7 @@ import { FaClipboardList } from 'react-icons/fa';
 import { LuPanelLeftClose } from 'react-icons/lu';
 import {Avatar, useDisclosure} from "@nextui-org/react";
 import {Button} from "@nextui-org/react";
-import ProfileModal from '../dashboard/ProfileModal';
+import ProfileModal from './ProfileModal';
 
 export default function SideBar({toggleSidebar}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
