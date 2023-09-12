@@ -1,11 +1,16 @@
 import React from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { RiMenu5Fill } from "react-icons/ri";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, DropdownSection,
-} from "@nextui-org/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, DropdownSection,} from "@nextui-org/react";
 import Link from "next/link";
+import { useSearchParams } from 'next/navigation';
+import { useProjectContext } from "@/context/ProjectContext";
 
 export default function Nav({ toggleSidebar }) {
+  const searchParams = useSearchParams()
+  const projectID = searchParams.get('projectID');
+  const { projects } = useProjectContext();
+  const selectedProject = projects.find((project) => project.title === projectID);
   return (
     <nav className="w-full md:w-fit p-6">
       <div className="h-10 w-full px-4 space-x-4 flex items-center justify-between md:justify-start rounded-full bg-gray-900">
@@ -18,10 +23,16 @@ export default function Nav({ toggleSidebar }) {
           <h1 className="text-gray-200 font-bold">
             <Link href={'/dashboard'}> Dashboard </Link>
           </h1>
+          {selectedProject ?
+          <div className="hidden md:flex text-xs items-center space-x-4 px-4 border-x border-gray-500">
+            <span>{selectedProject.title}</span>
+          </div>
+          :
           <div className="hidden md:flex text-xs items-center space-x-4 px-4 border-x border-gray-500">
             <span>12 tasks</span>
             <span>4 members</span>
           </div>
+          }
         </div>
         <Dropdown className="dark bg-gray-800">
           <DropdownTrigger>

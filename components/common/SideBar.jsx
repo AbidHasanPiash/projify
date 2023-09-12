@@ -1,16 +1,19 @@
 'use client'
 import Link from 'next/link';
-import { TbTargetArrow } from 'react-icons/tb';
-import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
-import { FaClipboardList } from 'react-icons/fa';
+import { CiViewTimeline, CiViewBoard, CiInstagram } from 'react-icons/ci';
+import { HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { PiArrowLineLeftDuotone } from 'react-icons/pi';
 import {Avatar, useDisclosure, Tooltip, Button} from "@nextui-org/react";
 import ProfileModal from './ProfileModal';
 import { useProjectContext } from '@/context/ProjectContext';
+import { useSearchParams } from 'next/navigation';
 
 export default function SideBar({toggleSidebar}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const searchParams = useSearchParams()
+    const projectID = searchParams.get('projectID');
     const {projects} = useProjectContext();
+    const selectedProject = projects.find((project) => project.title === projectID);
   return (
     <div className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
@@ -31,25 +34,56 @@ export default function SideBar({toggleSidebar}) {
         <div className='h-full flex flex-col space-y-4'>
             {/* Project tab */}
             <ul>
-                <li> 
-                    <Link href={'/dashboard/target'}>
-                    <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                        <span className='group-hover:text-orange-500'><TbTargetArrow size={22}/> </span>
-                        <span className='group-hover:text-gray-300'>Target</span>
-                    </Button>
-                    </Link>
+                <li>{selectedProject ? 
+                    <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                        <span className='group-hover:text-orange-500'><CiViewTimeline size={22}/> </span>
+                        <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Timeline</span>
+                    </div>
+                    :
+                    <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
+                        base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
+                        arrow: "bg-green-700",
+                     }}>
+                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                            <span className='group-hover:text-orange-500'><CiViewTimeline size={22}/> </span>
+                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Timeline</span>
+                        </div>
+                    </Tooltip>
+                    }
                 </li>
-                <li> 
-                    <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                        <span className='group-hover:text-orange-500'><FaClipboardList size={22}/> </span>
-                        <span className='group-hover:text-gray-300'>All task</span>
-                    </Button>
+                <li>{selectedProject ? 
+                    <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                        <span className='group-hover:text-orange-500'><CiViewBoard size={22}/> </span>
+                        <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Board</span>
+                    </div>
+                    :
+                    <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
+                        base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
+                        arrow: "bg-green-700",
+                     }}>
+                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                            <span className='group-hover:text-orange-500'><CiViewBoard size={22}/> </span>
+                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Board</span>
+                        </div>
+                    </Tooltip>
+                    }
                 </li>
-                <li> 
-                    <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                        <span className='group-hover:text-orange-500'><HiUserGroup size={22}/> </span>
-                        <span className='group-hover:text-gray-300'>Team</span>
-                    </Button>
+                <li>{selectedProject ? 
+                    <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                        <span className='group-hover:text-orange-500'><CiInstagram size={22}/> </span>
+                        <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Team</span>
+                    </div>
+                    :
+                    <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
+                        base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
+                        arrow: "bg-green-700",
+                     }}>
+                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                            <span className='group-hover:text-orange-500'><CiInstagram size={22}/> </span>
+                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Team</span>
+                        </div>
+                    </Tooltip>
+                    }
                 </li>
             </ul>
             {/* My list */}
@@ -68,11 +102,11 @@ export default function SideBar({toggleSidebar}) {
                     </Button>
                 </div>
                 <ul>
-                    <li>
-                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>Personal</Button>
+                    <li className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 hover:text-gray-300 text-gray-400 text-sm'>
+                        Personal
                     </li>
-                    <li>
-                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>Work</Button>
+                    <li className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 hover:text-gray-300 text-gray-400 text-sm'>
+                        Work
                     </li>
                 </ul>
             </div>
@@ -90,9 +124,9 @@ export default function SideBar({toggleSidebar}) {
                 {projects?.map((project, index) => (
                     <li key={index}>
                     <Link href={`/dashboard/projects?projectID=${encodeURIComponent(project.title)}`}>
-                        <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700'>
-                            <span className={'group-hover:text-gray-300 text-gray-300'}>{project.title}</span>
-                        </Button>
+                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700'>
+                            <span className={'group-hover:text-gray-300 text-gray-400 text-sm'}>{project.title}</span>
+                        </div>
                     </Link>
                     </li>
                 ))}
