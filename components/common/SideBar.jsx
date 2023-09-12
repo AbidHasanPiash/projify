@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import React from 'react'
+'use client'
 import Link from 'next/link';
 import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
@@ -30,6 +29,7 @@ export default function SideBar({toggleSidebar}) {
             <ProfileModal isOpen={isOpen} onClose={onClose}/>
         </div>
         <div className='h-full flex flex-col space-y-4'>
+            {/* Project tab */}
             <ul>
                 <li> 
                     <Link href={'/dashboard/target'}>
@@ -52,6 +52,7 @@ export default function SideBar({toggleSidebar}) {
                     </Button>
                 </li>
             </ul>
+            {/* My list */}
             <div>
                 <div className='flex w-full items-center justify-between px-6 py-2.5'>
                     <h1 className='text-lg font-bold flex items-center space-x-1'>
@@ -75,6 +76,7 @@ export default function SideBar({toggleSidebar}) {
                     </li>
                 </ul>
             </div>
+            {/* Project */}
             <div>
                 <div className='flex w-full items-center justify-between px-6 py-2.5'>
                     <h1 className='text-lg font-bold flex items-center space-x-1'>
@@ -85,11 +87,13 @@ export default function SideBar({toggleSidebar}) {
                     </Button>
                 </div>
                 <ul>
-                {projects?.map((item, index) => (
+                {projects?.map((project, index) => (
                     <li key={index}>
-                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                            <span>{item.title}</span>
+                    <Link href={`/dashboard/projects?projectID=${encodeURIComponent(project.title)}`}>
+                        <Button radius="none" variant="none" className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700'>
+                            <span className={'group-hover:text-gray-300 text-gray-300'}>{project.title}</span>
                         </Button>
+                    </Link>
                     </li>
                 ))}
                 </ul>

@@ -3,6 +3,7 @@ import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { RiMenu5Fill } from "react-icons/ri";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, DropdownSection,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function Nav({ toggleSidebar }) {
   return (
@@ -14,7 +15,9 @@ export default function Nav({ toggleSidebar }) {
           </span>
         </div>
         <div className="w-full flex items-center justify-start space-x-4">
-          <h1 className="text-gray-200 font-bold">Dashboard</h1>
+          <h1 className="text-gray-200 font-bold">
+            <Link href={'/dashboard'}> Dashboard </Link>
+          </h1>
           <div className="hidden md:flex text-xs items-center space-x-4 px-4 border-x border-gray-500">
             <span>12 tasks</span>
             <span>4 members</span>

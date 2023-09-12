@@ -10,7 +10,7 @@ export const ProjectProvider = ({ children }) => {
   const [projects, setProjects] = useState([
     {
         title:'RestoMan', 
-        discriptios:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
+        description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
         finishDate:'21-10-2023',
         team:[
             {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
@@ -20,7 +20,7 @@ export const ProjectProvider = ({ children }) => {
     },
     {
         title:'IBMS', 
-        discriptios:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
+        description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
         finishDate:'25-12-2023',
         team:[
             {name:'Lia', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
@@ -30,7 +30,7 @@ export const ProjectProvider = ({ children }) => {
     },
     {
         title:'TipOff', 
-        discriptios:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
+        description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
         finishDate:'12-11-2023',
         team:[
             {name:'Leo', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},

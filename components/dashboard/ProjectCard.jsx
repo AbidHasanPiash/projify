@@ -23,7 +23,7 @@ export default function ProjectCard({item}) {
             <span>{item.finishDate}</span>
         </p>
       </div>
-      <div className="p-2 rounded-md bg-gray-800 text-sm text-gray-400">{item.discriptios}</div>
+      <div className="p-2 rounded-md bg-gray-800 text-sm text-gray-400">{item.description}</div>
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-end space-x-3">
           <p className="w-fit text-xs px-4 py-1 bg-gray-800 rounded-full flex items-center">
