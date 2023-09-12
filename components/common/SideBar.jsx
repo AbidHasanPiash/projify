@@ -1,12 +1,12 @@
 'use client'
 import Link from 'next/link';
+import ProfileModal from './ProfileModal';
+import { useSearchParams } from 'next/navigation';
 import { CiViewTimeline, CiViewBoard, CiInstagram } from 'react-icons/ci';
 import { HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { PiArrowLineLeftDuotone } from 'react-icons/pi';
-import {Avatar, useDisclosure, Tooltip, Button} from "@nextui-org/react";
-import ProfileModal from './ProfileModal';
+import { Avatar, useDisclosure, Tooltip, Button } from "@nextui-org/react";
 import { useProjectContext } from '@/context/ProjectContext';
-import { useSearchParams } from 'next/navigation';
 
 export default function SideBar({toggleSidebar}) {
     const {isOpen, onOpen, onClose} = useDisclosure();

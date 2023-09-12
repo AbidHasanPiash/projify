@@ -13,9 +13,12 @@ export const ProjectProvider = ({ children }) => {
         description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
         finishDate:'21-10-2023',
         team:[
-            {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
-            {name:'Bob', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
-            {name:'Lee', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
+          {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
+          {name:'Bob', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
+          {name:'Lee', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
+        ],
+        task:[
+          {}
         ]
     },
     {
@@ -23,9 +26,9 @@ export const ProjectProvider = ({ children }) => {
         description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
         finishDate:'25-12-2023',
         team:[
-            {name:'Lia', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
-            {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
-            {name:'Joy', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
+          {name:'Lia', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
+          {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
+          {name:'Joy', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
         ]
     },
     {
@@ -33,9 +36,9 @@ export const ProjectProvider = ({ children }) => {
         description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium facere quis enim reiciendis, veritatis.', 
         finishDate:'12-11-2023',
         team:[
-            {name:'Leo', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
-            {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
-            {name:'Joy', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
+          {name:'Leo', src:"https://i.pravatar.cc/150?u=a042581f4e29026024d"},
+          {name:'Tom', src:"https://i.pravatar.cc/150?u=a042581f4e29026704d"},
+          {name:'Joy', src:"https://i.pravatar.cc/150?u=a04258114e29026302d"},
         ]
     },
   ]);
