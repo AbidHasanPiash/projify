@@ -14,6 +14,11 @@ export default function SideBar({toggleSidebar}) {
     const projectID = searchParams.get('projectID');
     const {projects} = useProjectContext();
     const selectedProject = projects.find((project) => project.title === projectID);
+    const selectedTab = [
+        {name:'timeline', icon:<CiViewTimeline size={22}/>},
+        {name:'board', icon:<CiViewBoard size={22}/>},
+        {name:'team', icon:<CiInstagram size={22}/>},
+    ]
   return (
     <div className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
@@ -34,57 +39,28 @@ export default function SideBar({toggleSidebar}) {
         <div className='h-full flex flex-col space-y-4'>
             {/* Project tab */}
             <ul>
-                <li>{selectedProject ? 
-                    <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                        <span className='group-hover:text-orange-500'><CiViewTimeline size={22}/> </span>
-                        <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Timeline</span>
-                    </div>
-                    :
-                    <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
-                        base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
-                        arrow: "bg-green-700",
-                     }}>
-                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                            <span className='group-hover:text-orange-500'><CiViewTimeline size={22}/> </span>
-                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Timeline</span>
-                        </div>
-                    </Tooltip>
-                    }
-                </li>
-                <li>{selectedProject ? 
-                    <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                        <span className='group-hover:text-orange-500'><CiViewBoard size={22}/> </span>
-                        <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Board</span>
-                    </div>
-                    :
-                    <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
-                        base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
-                        arrow: "bg-green-700",
-                     }}>
-                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                            <span className='group-hover:text-orange-500'><CiViewBoard size={22}/> </span>
-                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Board</span>
-                        </div>
-                    </Tooltip>
-                    }
-                </li>
-                <li>{selectedProject ? 
-                    <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                        <span className='group-hover:text-orange-500'><CiInstagram size={22}/> </span>
-                        <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Team</span>
-                    </div>
-                    :
-                    <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
-                        base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
-                        arrow: "bg-green-700",
-                     }}>
-                        <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
-                            <span className='group-hover:text-orange-500'><CiInstagram size={22}/> </span>
-                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>Team</span>
-                        </div>
-                    </Tooltip>
-                    }
-                </li>
+                {selectedTab.map((tab, index)=>(
+                    <li key={index}>{selectedProject ? 
+                        <Link 
+                            href={`/dashboard/projects?projectID=${encodeURIComponent(selectedProject.title)}&tab=${encodeURIComponent(tab.name)}`} 
+                            className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'
+                        >
+                            <span className='group-hover:text-orange-500'>{tab.icon}</span>
+                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>{tab.name}</span>
+                        </Link>
+                        :
+                        <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
+                            base: "py-2 px-4 shadow-xl text-gray-300 bg-green-500 text-gray-900",
+                            arrow: "bg-green-700",
+                            }}>
+                            <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                                <span className='group-hover:text-orange-500'>{tab.icon}</span>
+                                <span className='group-hover:text-gray-300 text-gray-400 text-sm'>{tab.name}</span>
+                            </div>
+                        </Tooltip>
+                        }
+                    </li>
+                ))}
             </ul>
             {/* My list */}
             <div>
@@ -123,7 +99,7 @@ export default function SideBar({toggleSidebar}) {
                 <ul>
                 {projects?.map((project, index) => (
                     <li key={index}>
-                    <Link href={`/dashboard/projects?projectID=${encodeURIComponent(project.title)}`}>
+                    <Link href={`/dashboard/projects?projectID=${encodeURIComponent(project.title)}&tab=timeline`}>
                         <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700'>
                             <span className={'group-hover:text-gray-300 text-gray-400 text-sm'}>{project.title}</span>
                         </div>
