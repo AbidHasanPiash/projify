@@ -22,10 +22,27 @@ export const UserProvider = ({ children }) => {
     {name:'Gil', src:"https://i.pravatar.cc/300?u=a042581f4e29026712d" },
   ]);
 
-  // CRUD functions for users...
+  // Function to add a new user
+  const addUser = (newUser) => {
+    setUsers([...users, newUser]);
+  };
+
+  // Function to update a user
+  const updateUser = (updatedUser) => {
+    const updatedUsers = users.map((user) =>
+      user.name === updatedUser.name ? updatedUser : user
+    );
+    setUsers(updatedUsers);
+  };
+
+  // Function to delete a user
+  const deleteUser = (name) => {
+    const updatedUsers = users.filter((user) => user.name !== name);
+    setUsers(updatedUsers);
+  };
 
   return (
-    <UserContext.Provider value={{ users, /* CRUD functions */ }}>
+    <UserContext.Provider value={{ users, addUser, updateUser, deleteUser }}>
       {children}
     </UserContext.Provider>
   );

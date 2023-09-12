@@ -8,9 +8,11 @@ import {Avatar, useDisclosure} from "@nextui-org/react";
 import {Button} from "@nextui-org/react";
 import ProfileModal from './ProfileModal';
 import Link from 'next/link';
+import { useProjectContext } from '@/context/ProjectContext';
 
 export default function SideBar({toggleSidebar}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const {projects} = useProjectContext();
   return (
     <div className='w-60 h-screen bg-gray-900 text-gray-400 flex flex-col justify-between space-y-1.5 overflow-y-auto'>
         <div className='p-6 space-y-4'>
@@ -80,15 +82,13 @@ export default function SideBar({toggleSidebar}) {
                     </span>
                 </Button>
                 <ul>
-                    <li>
-                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>RestoMan</Button>
+                {projects?.map((item, index) => (
+                    <li key={index}>
+                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
+                            <span>{item.title}</span>
+                        </Button>
                     </li>
-                    <li>
-                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>IBMS</Button>
-                    </li>
-                    <li>
-                        <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>TipOFF</Button>
-                    </li>
+                ))}
                 </ul>
             </div>
         </div>
