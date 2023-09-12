@@ -19,7 +19,6 @@ export default function page() {
     }
   return (
     <div>
-      {selectedProject.title}/{tab}
       {tab === 'timeline' && <Timeline selectedProject ={selectedProject}/>}
       {tab === 'board' && <Board selectedProject ={selectedProject}/>}
       {tab === 'team' && <Team selectedProject ={selectedProject}/>}
