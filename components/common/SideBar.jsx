@@ -12,6 +12,7 @@ export default function SideBar({toggleSidebar}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const searchParams = useSearchParams()
     const projectID = searchParams.get('projectID');
+    const activeTab = searchParams.get('tab');
     const {projects} = useProjectContext();
     const selectedProject = projects.find((project) => project.title === projectID);
     const selectedTab = [
@@ -45,8 +46,8 @@ export default function SideBar({toggleSidebar}) {
                             href={`/dashboard/projects?projectID=${encodeURIComponent(selectedProject.title)}&tab=${encodeURIComponent(tab.name)}`} 
                             className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'
                         >
-                            <span className='group-hover:text-orange-500'>{tab.icon}</span>
-                            <span className='group-hover:text-gray-300 text-gray-400 text-sm capitalize'>{tab.name}</span>
+                            <span className={`${activeTab==tab.name ? 'text-orange-500' : 'group-hover:text-orange-500'}`}>{tab.icon}</span>
+                            <span className={`${activeTab==tab.name ? 'text-gray-300' : 'group-hover:text-gray-300'} text-sm capitalize`}>{tab.name}</span>
                         </Link>
                         :
                         <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
