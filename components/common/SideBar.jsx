@@ -46,7 +46,7 @@ export default function SideBar({toggleSidebar}) {
                             className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'
                         >
                             <span className='group-hover:text-orange-500'>{tab.icon}</span>
-                            <span className='group-hover:text-gray-300 text-gray-400 text-sm'>{tab.name}</span>
+                            <span className='group-hover:text-gray-300 text-gray-400 text-sm capitalize'>{tab.name}</span>
                         </Link>
                         :
                         <Tooltip size={'sm'} Delay={0} closeDelay={0} showArrow placement="right" content="Please select a project" classNames={{
@@ -55,7 +55,7 @@ export default function SideBar({toggleSidebar}) {
                             }}>
                             <div className='group w-full flex items-center justify-start py-2.5 px-6 space-x-2.5 cursor-pointer hover:bg-gray-700 transition-all duration-200'>
                                 <span className='group-hover:text-orange-500'>{tab.icon}</span>
-                                <span className='group-hover:text-gray-300 text-gray-400 text-sm'>{tab.name}</span>
+                                <span className='group-hover:text-gray-300 text-gray-400 text-sm capitalize'>{tab.name}</span>
                             </div>
                         </Tooltip>
                         }

@@ -1,6 +1,9 @@
 'use client'
 import { useSearchParams } from 'next/navigation';
 import { useProjectContext } from '@/context/ProjectContext';
+import Timeline from '@/components/Projects/Timeline';
+import Board from '@/components/Projects/Board';
+import Team from '@/components/Projects/Team';
 
 export default function page() {
     const searchParams = useSearchParams()
@@ -17,6 +20,9 @@ export default function page() {
   return (
     <div>
       {selectedProject.title}/{tab}
+      {tab === 'timeline' && <Timeline selectedProject ={selectedProject}/>}
+      {tab === 'board' && <Board selectedProject ={selectedProject}/>}
+      {tab === 'team' && <Team selectedProject ={selectedProject}/>}
     </div>
   )
 }
