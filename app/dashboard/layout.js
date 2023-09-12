@@ -19,7 +19,7 @@ export default function Layout({ children }) {
     <section lang="en" className='bg-gray-950 text-gray-400'>
       <ProjectProvider>
         <UserProvider>
-          <div className='flex'>
+          <div className='flex w-screen'>
             {/* Sidebar for Mobile */}
             <aside id='outside' onClick={closeSidebar} className={`lg:hidden ${isOpen ? 'w-full z-20 translate-x-0 backdrop-blur-sm' : 'w-0 -translate-x-96'} fixed transition-all duration-200 ease-linear`}>
               <SideBar toggleSidebar={toggleSidebar}/>

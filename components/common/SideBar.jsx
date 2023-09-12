@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
+import Link from 'next/link';
 import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
-import { LuPanelLeftClose } from 'react-icons/lu';
-import {Avatar, useDisclosure} from "@nextui-org/react";
-import {Button} from "@nextui-org/react";
+import { BsArrowBarLeft } from 'react-icons/bs';
+import {Avatar, useDisclosure, Tooltip, Button} from "@nextui-org/react";
 import ProfileModal from './ProfileModal';
-import Link from 'next/link';
 import { useProjectContext } from '@/context/ProjectContext';
 
 export default function SideBar({toggleSidebar}) {
@@ -25,10 +24,10 @@ export default function SideBar({toggleSidebar}) {
                     <p className='text-xs tracking-widest'>Leader</p>
                 </div>
             </div>
+            <Button isIconOnly color="danger" aria-label="Like" variant='transparent' onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 text-white flex items-center justify-center left-56 top-2'>
+                <BsArrowBarLeft/>
+            </Button>
             <ProfileModal isOpen={isOpen} onClose={onClose}/>
-            <button onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center left-56 top-2'>
-                <LuPanelLeftClose size={22}/>
-            </button>
         </div>
         <div className='h-full flex flex-col space-y-4'>
             <ul>
@@ -54,15 +53,19 @@ export default function SideBar({toggleSidebar}) {
                 </li>
             </ul>
             <div>
-                <Button radius="none" variant="none" className='flex w-full items-center justify-between cursor-pointer px-6 py-2.5 hover:bg-gray-700 transition-all duration-200'>
+                <div className='flex w-full items-center justify-between px-6 py-2.5'>
                     <h1 className='text-lg font-bold flex items-center space-x-1'>
                         <span className='text-gray-300'>My lists</span> 
-                        <HiOutlineLockClosed size={14}/>
+                        <Tooltip color={'success'} Delay={0} closeDelay={0} content={'Privat for you'}>
+                            <span>
+                                <HiOutlineLockClosed size={14}/>
+                            </span>
+                        </Tooltip>
                     </h1>
-                    <span className='hover:text-orange-500'>
+                    <Button isIconOnly color="danger" aria-label="Like" variant='transparent' className='p-0 m-0 hover:text-orange-500 rounded-full cursor-pointer flex items-center justify-center hover:bg-gray-700'>
                         <HiPlus/>
-                    </span>
-                </Button>
+                    </Button>
+                </div>
                 <ul>
                     <li>
                         <Button radius="none" variant="none" className='w-full flex items-center justify-start py-2.5 px-6 cursor-pointer hover:bg-gray-700 transition-all duration-200'>Personal</Button>
@@ -73,14 +76,14 @@ export default function SideBar({toggleSidebar}) {
                 </ul>
             </div>
             <div>
-                <Button radius="none" variant="none" className='flex w-full items-center justify-between cursor-pointer px-6 py-2.5 hover:bg-gray-700 transition-all duration-200'>
+                <div className='flex w-full items-center justify-between px-6 py-2.5'>
                     <h1 className='text-lg font-bold flex items-center space-x-1'>
                         <span className='text-gray-300'>Projects</span>
                     </h1>
-                    <span className='hover:text-orange-500'>
+                    <Button isIconOnly color="danger" aria-label="Like" variant='transparent' className='p-0 m-0 hover:text-orange-500 rounded-full cursor-pointer flex items-center justify-center hover:bg-gray-700'>
                         <HiPlus/>
-                    </span>
-                </Button>
+                    </Button>
+                </div>
                 <ul>
                 {projects?.map((item, index) => (
                     <li key={index}>
