@@ -15,7 +15,7 @@ export default function Nav({ toggleSidebar }) {
         </div>
         <div className="w-full flex items-center justify-start space-x-4">
           <h1 className="text-gray-200 font-bold">Dashboard</h1>
-          <div className="text-xs flex items-center space-x-4 px-4 border-x border-gray-500">
+          <div className="hidden md:flex text-xs items-center space-x-4 px-4 border-x border-gray-500">
             <span>12 tasks</span>
             <span>4 members</span>
           </div>

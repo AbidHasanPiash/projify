@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { TbTargetArrow } from 'react-icons/tb';
 import { HiUserGroup, HiPlus, HiOutlineLockClosed } from 'react-icons/hi';
 import { FaClipboardList } from 'react-icons/fa';
-import { BsArrowBarLeft } from 'react-icons/bs';
+import { PiArrowLineLeftDuotone } from 'react-icons/pi';
 import {Avatar, useDisclosure, Tooltip, Button} from "@nextui-org/react";
 import ProfileModal from './ProfileModal';
 import { useProjectContext } from '@/context/ProjectContext';
@@ -25,7 +25,7 @@ export default function SideBar({toggleSidebar}) {
                 </div>
             </div>
             <Button isIconOnly color="danger" aria-label="Like" variant='transparent' onClick={toggleSidebar} className='lg:hidden fixed h-10 w-10 rounded-full bg-gray-700 text-white flex items-center justify-center left-56 top-2'>
-                <BsArrowBarLeft/>
+                <PiArrowLineLeftDuotone/>
             </Button>
             <ProfileModal isOpen={isOpen} onClose={onClose}/>
         </div>
