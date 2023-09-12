@@ -1,37 +1,42 @@
 import React from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { RiMenu5Fill } from "react-icons/ri";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  DropdownSection,
-} from "@nextui-org/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, DropdownSection,} from "@nextui-org/react";
+import Link from "next/link";
+import { useSearchParams } from 'next/navigation';
+import { useProjectContext } from "@/context/ProjectContext";
 
-export default function Nav({ toggleSidebar, isOpen }) {
+export default function Nav({ toggleSidebar }) {
+  const searchParams = useSearchParams()
+  const projectID = searchParams.get('projectID');
+  const { projects } = useProjectContext();
+  const selectedProject = projects.find((project) => project.title === projectID);
   return (
-    <nav className="h-10 w-fit m-6 px-6 space-x-6 flex items-center rounded-full bg-gray-900">
-      <div>
-        <span
-          onClick={toggleSidebar}
-          className="cursor-pointer hover:text-orange-400"
-        >
-          <RiMenu5Fill size={20} />
-        </span>
-      </div>
-      <div className="flex items-center justify-center">
-        <div className="border-r pr-6 mr-6 border-gray-500">
-          <h1 className="text-gray-200 font-bold">Dashboard</h1>
+    <nav className="w-full md:w-fit p-6">
+      <div className="h-10 w-full px-4 space-x-4 flex items-center justify-between md:justify-start rounded-full bg-gray-900">
+        <div>
+          <span onClick={toggleSidebar} className="cursor-pointer hover:text-orange-400">
+            <RiMenu5Fill size={20} />
+          </span>
         </div>
-        <div className="text-xs flex items-center space-x-6 border-r pr-6 mr-6 border-gray-500">
-          <span>12 tasks</span>
-          <span>4 members</span>
+        <div className="w-full flex items-center justify-start space-x-4">
+          <h1 className="text-gray-200 font-bold">
+            <Link href={'/dashboard'}> Dashboard </Link>
+          </h1>
+          {selectedProject ?
+          <div className="hidden md:flex text-xs items-center space-x-4 px-4 border-x border-gray-500">
+            <span>{selectedProject.title}</span>
+          </div>
+          :
+          <div className="hidden md:flex text-xs items-center space-x-4 px-4 border-x border-gray-500">
+            <span>12 tasks</span>
+            <span>4 members</span>
+          </div>
+          }
         </div>
         <Dropdown className="dark bg-gray-800">
           <DropdownTrigger>
-            <Button variant="transparant">
+            <Button isIconOnly color="danger" aria-label="menu" variant="transparant">
               <span>
                 <HiOutlineDotsHorizontal size={20} />
               </span>
