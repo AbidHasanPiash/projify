@@ -16,7 +16,7 @@ export default function SideBar({toggleSidebar}) {
         <div className='p-6 space-y-4'>
             <div onClick={onOpen} className='flex items-center space-x-3 cursor-pointer'>
                 <div className='rounded-full w-10 h-10 flex items-center justify-center'>
-                    <Avatar isBordered color="warning" className='dark' src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
+                    <Avatar isBordered className='dark ring-orange-500' src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
                 </div>
                 <div>
                     <p className='font-bold text-gray-300'>Abid Hasan</p>
@@ -73,8 +73,7 @@ export default function SideBar({toggleSidebar}) {
             <div>
                 <Button radius="none" variant="none" className='flex w-full items-center justify-between cursor-pointer px-6 py-2.5 hover:bg-gray-700 transition-all duration-200'>
                     <h1 className='text-lg font-bold flex items-center space-x-1'>
-                        <span className='text-gray-300'>Projects</span> 
-                        <HiOutlineLockClosed size={14}/>
+                        <span className='text-gray-300'>Projects</span>
                     </h1>
                     <span className='hover:text-orange-500'>
                         <HiPlus/>
