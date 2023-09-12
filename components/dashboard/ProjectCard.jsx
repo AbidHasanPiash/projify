@@ -9,7 +9,7 @@ export default function ProjectCard({item}) {
   return (
     <div className="bg-gray-900 rounded-xl p-3 space-y-3 cursor-pointer">
       <div className="flex items-center justify-between">
-        <Link href={`/dashboard/projects?projectID=${encodeURIComponent(item.title)}`}>
+        <Link href={`/dashboard/projects?projectID=${encodeURIComponent(item.title)}&tab=timeline`}>
           <h1 className="text-xl border-l-4 border-orange-600 px-2">{item.title}</h1>
         </Link>
         <span><HiStar size={20}/></span>
