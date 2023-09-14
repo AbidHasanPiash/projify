@@ -44,6 +44,16 @@ export default function Timeline({selectedProject}) {
             status: 'Processing',
             discription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. molestias natus expedita in eveniet! Nemo error officia sed? Facere veritatis labore id totam.',
         },
+        {
+            title: 'Task 5',
+            project: 'RestoMan',
+            initiateDate: '12 December 2023',
+            assignTo:['Tom', 'Amy'],
+            reviewDate: '12 December 2023',
+            completeDate: '12 December 2023',
+            status: 'Processing',
+            discription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. molestias natus expedita in eveniet! Nemo error officia sed? Facere veritatis labore id totam.',
+        },
     ]);
     const processingTasks = Tasks.filter((task) => task.status === 'Processing');
     const reviewingTasks = Tasks.filter((task) => task.status === 'Reviewing');
@@ -57,7 +67,7 @@ export default function Timeline({selectedProject}) {
                 </div>
                 {/* Timeline */}
                 {processingTasks.map((task, i) => (
-                    <div key={i} className='border-l-2 border-orange-500/40 mx-3 pb-10'>
+                    <div key={i} className={`${i === processingTasks.length -1 ? 'mx-3.5':'border-l-2 border-orange-500/40 mx-3'} pb-10`}>
                         <div className='relative ml-6'>
                         {/* dot */}
                         <div className='absolute top-0 -left-8 bg-orange-500 h-3.5 w-3.5 rounded-full'></div>
