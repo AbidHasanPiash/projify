@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/************* Scroll bar color change for desktop *************/
+/* Change the color of the scrollbar track for desktop */
+@media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 8px;
+      /* Width of the scrollbar */
+    }
+  
+    ::-webkit-scrollbar-track {
+      background-color: rgb(31 41 55);
+      /* Color of the scrollbar track */
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background-color: rgb(107 114 128);
+      /* Color of the scrollbar thumb */
+      border-radius: 4px;
+      /* Rounded corners for the thumb */
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgb(255, 136, 24);
+      /* Color of the thumb on hover */
+    }
+  }
