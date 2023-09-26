@@ -5,7 +5,7 @@ import {Providers} from "./providers";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Taskhub',
+  title: 'ProjPify',
   description: 'Organize your work and life, finally.',
 }
 
